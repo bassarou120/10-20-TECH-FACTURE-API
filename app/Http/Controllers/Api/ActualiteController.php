@@ -24,8 +24,6 @@ class ActualiteController extends Controller
         //get posts
         $actulalite = Actualite::latest()->paginate(20);
 
-
-
         //return collection of posts as a resource
         return new PostResource(true, 'List Data Posts', $actulalite);
     }

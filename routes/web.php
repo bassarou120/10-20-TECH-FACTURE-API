@@ -21,12 +21,12 @@ Route::get('/', function () {
 
     $content = [
         'subject' => 'TEST EMAIL',
-        'body' => 'Ceci est test du serveur mail du RESHAOC '
+        'body' => 'Ceci est test du serveur mail du  '
     ];
     $password = Str::random(8);
 
     error_log($password);
 
-   Mail::to('yacouboubassarou@gmail.com')->send(new SampleMail($content));
+//   Mail::to('yacouboubassarou@gmail.com')->send(new SampleMail($content));
     return view('welcome');
 });

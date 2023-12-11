@@ -4,7 +4,9 @@
 use App\Http\Controllers\Api\ActualiteController;
 use App\Http\Controllers\Api\AdherantController;
 use App\Http\Controllers\Api\CotisationAdherantController;
+use App\Http\Controllers\Api\DetailFactureController;
 use App\Http\Controllers\Api\DocumentController;
+use App\Http\Controllers\Api\FactureController;
 use App\Http\Controllers\Api\HopitalController;
 use App\Http\Controllers\Api\ParamettreController;
 use App\Http\Controllers\Api\ParamImageController;
@@ -24,8 +26,29 @@ Route::controller(RegisterController::class)->group(function(){
 });
 
 
-//posts
-Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
+//client
+Route::apiResource('/clients', App\Http\Controllers\Api\ClientController::class);
+
+//produits
+Route::apiResource('/produits', App\Http\Controllers\Api\ProduitController::class);
+
+//facture
+Route::apiResource('/factures', App\Http\Controllers\Api\FactureController::class);
+//facture
+Route::apiResource('/detailfactures', App\Http\Controllers\Api\DetailFactureController::class);
+
+Route::controller( FactureController::class)->group(function(){
+
+    Route::post('addAllDetailFacture/{id}', 'addAllDetailFacture');
+    Route::get('getFactureEtDetailById/{id}', 'getFactureEtDetailById');
+    Route::get('getStatistque', 'getStatistque');
+
+
+});
+
+
+/*
+
 
 //actualite
 Route::apiResource('/actualites',  ActualiteController::class);
@@ -74,6 +97,7 @@ Route::controller( ParamettreController::class)->group(function(){
     Route::get('getParamettreByKey/{key}', 'getParamettreByKey');
     Route::post('updatParamettreByKey', 'updatParamettreByKey');
     Route::post('saveParamettreSite', 'saveParamettreSite');
+    Route::get('getAllParamettreSite', 'getAllParamettreSite');
 
 });
 
@@ -131,3 +155,4 @@ Route::controller(    CotisationAdherantController::class)->group(function(){
 
 });
 
+*/
